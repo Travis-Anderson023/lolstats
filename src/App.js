@@ -1,87 +1,87 @@
-// import React from "react";
-// import {
-//   MemoryRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
-// import { Test } from "./pages/Test"
-// import { Home } from "./pages/Home"
-// //import { Aatrox } from "./pages/Aatrox"
-// import Button from '@material-ui/core/Button';
-// import { AppBar, Container, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar } from "@material-ui/core";
-// import HomeIcon from "@material-ui/icons/Home";
-// import { useSelector } from 'react-redux';
-// import { ChampionGraph } from "./pages/ChampionGraph";
-// //import { makeStyles } from "@material-ui/core/styles";
+// // import React from "react";
+// // import {
+// //   MemoryRouter as Router,
+// //   Switch,
+// //   Route,
+// //   Link
+// // } from "react-router-dom";
+// // import { Test } from "./pages/Test"
+// // import { Home } from "./pages/Home"
+// // //import { Aatrox } from "./pages/Aatrox"
+// // import Button from '@material-ui/core/Button';
+// // import { AppBar, Container, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar } from "@material-ui/core";
+// // import HomeIcon from "@material-ui/icons/Home";
+// // import { useSelector } from 'react-redux';
+// // import { ChampionGraph } from "./pages/ChampionGraph";
+// // //import { makeStyles } from "@material-ui/core/styles";
 
 
 
 
 
-export default function App() {
-  const routes = useSelector(state => state.routes)
+// export default function App() {
+//   const routes = useSelector(state => state.routes)
 
-  const useStyles = makeStyles({
-    navbarDisplayFlex: {
-      display: `flex`,
-      justifyContent: `space-between`
-    },
-    navDisplayFlex: {
-      display: `flex`,
-      justifyContent: `space-between`
-    },
-    linkText: {
-      textDecoration: `none`,
-      textTransform: `uppercase`,
-      color: `white`
-    }
-  });
-  const classes = useStyles();
+//   const useStyles = makeStyles({
+//     navbarDisplayFlex: {
+//       display: `flex`,
+//       justifyContent: `space-between`
+//     },
+//     navDisplayFlex: {
+//       display: `flex`,
+//       justifyContent: `space-between`
+//     },
+//     linkText: {
+//       textDecoration: `none`,
+//       textTransform: `uppercase`,
+//       color: `white`
+//     }
+//   });
+//   const classes = useStyles();
 
-  return (
-    <Router>
-      <div>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="home" component={Link} to="/Home">
-              <HomeIcon fontSize="large" />
-            </IconButton>
-            <Container maxWidth="md" className={classes.navbarDisplayFlex}>
-              <List
-                component="nav"
-                aria-labelledby="main navigation"
-                className={classes.navDisplayFlex}
-              > 
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
-                <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//   return (
+//     <Router>
+//       <div>
+//         <AppBar position="static">
+//           <Toolbar>
+//             <IconButton edge="start" color="inherit" aria-label="home" component={Link} to="/Home">
+//               <HomeIcon fontSize="large" />
+//             </IconButton>
+//             <Container maxWidth="md" className={classes.navbarDisplayFlex}>
+//               <List
+//                 component="nav"
+//                 aria-labelledby="main navigation"
+//                 className={classes.navDisplayFlex}
+//               > 
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
+//                 <Button className={classes.linkText} color="primary" component={Link} to="/Test">Test</Button>
 
-                <ListItem button>
-                  <ListItemText/>
-                </ListItem>
+//                 <ListItem button>
+//                   <ListItemText/>
+//                 </ListItem>
             
-          </List>
-        </Container>
-      </Toolbar>
-    </AppBar>
-      <AppBar position="static">
+//           </List>
+//         </Container>
+//       </Toolbar>
+//     </AppBar>
+//       <AppBar position="static">
 
-      </AppBar>
-      <Switch>
-        <Route  path="/test" component={Test} />
-        <Route  path="/home" component={Home} />
-        <Route  path="/aatrox" component={ChampionGraph} />
-      </Switch>
-      </div>
-    </Router >
+//       </AppBar>
+//       <Switch>
+//         <Route  path="/test" component={Test} />
+//         <Route  path="/home" component={Home} />
+//         <Route  path="/aatrox" component={ChampionGraph} />
+//       </Switch>
+//       </div>
+//     </Router >
 
-  );
-}
+//   );
+// }
 
 
 // import React from "react";
