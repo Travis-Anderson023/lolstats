@@ -6,6 +6,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Query from "jquery";
 import { Test } from "./pages/Test"
 import { Home } from "./pages/Home"
 //import { Aatrox } from "./pages/Aatrox"
