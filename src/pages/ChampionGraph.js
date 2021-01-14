@@ -70,7 +70,7 @@ export const ChampionGraph = () => {
 
     return (
 
-        <div style={flexStyle}>
+        <>
             <MultiSelect
                 options={championList}
                 value={selected}
@@ -93,6 +93,6 @@ export const ChampionGraph = () => {
                     }}
                 />
             </div>
-        </div>
+        </>
     )
 }
