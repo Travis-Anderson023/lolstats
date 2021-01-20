@@ -18,13 +18,13 @@ const useStyles = makeStyles((theme) => ({
     export function Home() {
     const classes = useStyles();
     const routes = useSelector(state => state.routes)
-
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
                     {
                         routes.map((route, index) => (
-                            <Grid item xs={12} sm={9} md={6} lg={3} xl={2} component={Link} to={route.path} key={index} >{route.img}</Grid>
+                            <Grid item xs={12} sm={9} md={6} lg={3} xl={2} key={index} onClick={()=>{window.location.href=route.path}}>{route.img}
+                            </Grid>
                         ))
                     }
             </Grid>
