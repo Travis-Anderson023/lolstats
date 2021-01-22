@@ -3,7 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import { useSelector } from 'react-redux';
+<<<<<<< HEAD
 //import { Link } from 'react-router-dom'
+=======
+import { Link } from 'react-router-dom'
+>>>>>>> e74e22ae30410b21c9f50363c7bd46c644425041
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
     export function Home() {
     const classes = useStyles();
     const routes = useSelector(state => state.routes)
-
     return (
         <div className={classes.root}>
             <Grid container spacing={3}>
