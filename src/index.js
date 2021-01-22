@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import allReducers from './reducers';
-import { BrowserRouter } from "react-router-dom"
+//import { BrowserRouter } from "react-router-dom"
 const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 
@@ -22,11 +22,11 @@ const store = createStore(allReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && wi
 // store.subscribe(() => saveToLocalStorage(store.getState()))
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Provider store={store}>
+
+  <Provider store={store}>
       <App />
-    </Provider>
-  </BrowserRouter>,
+  </Provider>,
+  
   document.getElementById('root')
 );
 

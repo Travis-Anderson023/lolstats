@@ -8,8 +8,12 @@ import MultiSelect from "react-multi-select-component";
 export const ChampionGraph = () => {
     const [championArr, setChampionArr] = useState(0);
     const [championList, setChampionList] = useState([])// used to create an array of all champmion names
-    const [selected, setSelected] = useState([]);//chooses champion from dropdown menu
+    const [selected, setSelected] = useState({}});//chooses champion from dropdown menu
     const [champStats, setChampStats] = useState([])//list of the currently selected champions stats
+
+    window.onload = () => {
+        window.location.href.event([^\/]+$)
+    }
 
 
     useEffect(() => {
@@ -52,21 +56,19 @@ export const ChampionGraph = () => {
             //for(let i = 0; i < champArray.length; i++){
             champArray[champArray.length - 1].shift()
             //}
-            console.log(champArray)
+            console.log(window.location.href)
+            console.log(selected)
 
         }
         catch (err) {
             let errMsg = "Input is " + err;
-            console.log(errMsg)
+            console.log(window.location.href)
         }
     }, [selected])
 
     const mystyle = {
         height: "80vh"
     };
-    const flexStyle = {
-        display: "flex"
-    }
 
     return (
 

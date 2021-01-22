@@ -1,18 +1,19 @@
 import React from "react";
-import {
-  MemoryRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import { Test } from "./pages/Test"
-import { Home } from "./pages/Home"
+// import {
+//   MemoryRouter as Router,
+//   Switch,
+//   Route,
+//   Link,
+// } from "react-router-dom";
+// import { Test } from "./pages/Test"
+// import { Home } from "./pages/Home"
 //import { Aatrox } from "./pages/Aatrox"
 import Button from '@material-ui/core/Button';
 import { AppBar, Container, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
-import { useSelector } from 'react-redux';
-import { ChampionGraph } from "./pages/ChampionGraph";
+// import { ChampionGraph } from "./pages/ChampionGraph";
+import { useRoutes } from "hookrouter";
+import Url from "./components/Url";
 //import { makeStyles } from "@material-ui/core/styles";
 
 
@@ -20,7 +21,7 @@ import { ChampionGraph } from "./pages/ChampionGraph";
 
 
 export default function App() {
-  const routes = useSelector(state => state.routes)
+  const routeResult = useRoutes(Url);
 
   const useStyles = makeStyles({
     navbarDisplayFlex: {
@@ -40,7 +41,7 @@ export default function App() {
   const classes = useStyles();
 
   return (
-    <Router>
+    
       <div>
         <AppBar position="static">
           <Toolbar>
@@ -73,13 +74,14 @@ export default function App() {
         <AppBar position="static">
 
         </AppBar>
-        <Switch>
+        {/* <Switch>
           <Route path="/test" component={Test} />
           <Route exact path="/" component={Home} />
           <Route path="/Aatrox" component={ChampionGraph} />
-        </Switch>
+        </Switch> */}
+        {routeResult}
       </div>
-    </Router >
+    
 
   );
 }
