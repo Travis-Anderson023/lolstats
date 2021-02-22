@@ -8,12 +8,12 @@ import MultiSelect from "react-multi-select-component";
 export const ChampionGraph = () => {
     const [championArr, setChampionArr] = useState(0);
     const [championList, setChampionList] = useState([])// used to create an array of all champmion names
-    const [selected, setSelected] = useState({}});//chooses champion from dropdown menu
+    const [selected, setSelected] = useState({});//chooses champion from dropdown menu
     const [champStats, setChampStats] = useState([])//list of the currently selected champions stats
 
-    window.onload = () => {
-        window.location.href.event([^\/]+$)
-    }
+    // window.onload = () => {
+    //     window.location.href.event([^\/]+$)
+    // }
 
 
     useEffect(() => {
