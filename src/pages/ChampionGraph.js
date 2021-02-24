@@ -1,4 +1,4 @@
-//Current idea is to have it check the current path (import uselocation?) then grab the index (see datasets or line 46?)
+//value in multiselect  is causing error. also see champstat for the current selected value
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse'
 import { Bar } from 'react-chartjs-2';
@@ -6,9 +6,10 @@ import MultiSelect from "react-multi-select-component";
 
 
 export const ChampionGraph = () => {
+    let location = window.location.href.split("/").pop()
     const [championArr, setChampionArr] = useState(0);
     const [championList, setChampionList] = useState([])// used to create an array of all champmion names
-    const [selected, setSelected] = useState({});//chooses champion from dropdown menu
+    const [selected, setSelected] = useState([{}]);//chooses champion from dropdown menu label: location, value: 1
     const [champStats, setChampStats] = useState([])//list of the currently selected champions stats
 
     // window.onload = () => {
@@ -39,8 +40,8 @@ export const ChampionGraph = () => {
     }));
 
     const state = {
-        labels: ['Health', 'Health/ Lv', 'Mana',
-            'Mana/ Lv', 'AD', 'AS', 'Armor', 'Magic Resist', 'Range', 'Move Speed'],
+        labels: ['H', 'H/Lv', 'M',
+            'M/Lv', 'AD', 'AS', 'A', 'MR', 'R', 'MS'],
         datasets: datasets
     }
 
@@ -52,19 +53,19 @@ export const ChampionGraph = () => {
                 let champSelect = champ["value"] + 1
                 champArray.push(championArr[champSelect]);
             }
-            setChampStats(champArray)
+            setChampStats(selected)
             //for(let i = 0; i < champArray.length; i++){
             champArray[champArray.length - 1].shift()
             //}
-            console.log(window.location.href)
             console.log(selected)
 
         }
         catch (err) {
             let errMsg = "Input is " + err;
-            console.log(window.location.href)
+            console.log(selected)
         }
     }, [selected])
+    
 
     const mystyle = {
         height: "80vh"
