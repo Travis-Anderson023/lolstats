@@ -8,7 +8,7 @@ import MultiSelect from "react-multi-select-component";
 export const ChampionGraph = () => {
     let location = window.location.href.split("/").pop()
     const [championArr, setChampionArr] = useState(0);
-    const [championList, setChampionList] = useState([])// used to create an array of all champmion names
+    const [championNamesList, setChampionNamesList] = useState([])// used to create an array of all champmion names
     const [selected, setSelected] = useState([{}]);//chooses champion from dropdown menu label: location, value: 1
     const [champStats, setChampStats] = useState([])//list of the currently selected champions stats
 
@@ -20,13 +20,15 @@ export const ChampionGraph = () => {
     useEffect(() => {
         Papa.parse("/sheet.csv", {//parses the selected csv file into a 2d array
             download: true,
+            header: true,
             complete: function (results) {
                 const champNames = []
                 for (let i = 0; i < results.data.length - 1; i++) {
                     champNames.push({ label: results.data[i + 1][0], value: i })
                 }
-                setChampionList(champNames)
+                setChampionNamesList(champNames)
                 setChampionArr(results.data)
+                console.log("ignore")
             }
 
         });
@@ -57,25 +59,25 @@ export const ChampionGraph = () => {
             //for(let i = 0; i < champArray.length; i++){
             champArray[champArray.length - 1].shift()
             //}
-            console.log(selected)
 
         }
         catch (err) {
             let errMsg = "Input is " + err;
-            console.log(selected)
         }
     }, [selected])
-    
-
+    console.log(championArr)
     const mystyle = {
         height: "80vh"
     };
 
+
+
+    //const listOfChampionNames = championArr.map(x=>x.Champion)
     return (
 
         <>
             <MultiSelect
-                options={championList}
+                options={championNamesList}        
                 value={selected}
                 onChange={setSelected}
                 labelledBy={"Select"}
