@@ -1,103 +1,82 @@
-//value in multiselect  is causing error. also see champstat for the current selected value
 import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse'
 import { Bar } from 'react-chartjs-2';
-import MultiSelect from "react-multi-select-component";
+import { useTheme } from '@material-ui/core/styles';
+import { Paper } from '@material-ui/core';
 
 
 export const ChampionGraph = () => {
-    let location = window.location.href.split("/").pop()
-    const [championArr, setChampionArr] = useState(0);
-    const [championNamesList, setChampionNamesList] = useState([])// used to create an array of all champmion names
-    const [selected, setSelected] = useState([{}]);//chooses champion from dropdown menu label: location, value: 1
-    const [champStats, setChampStats] = useState([])//list of the currently selected champions stats
-
-    // window.onload = () => {
-    //     window.location.href.event([^\/]+$)
-    // }
-
-
+    const [championDataObject, setChampionDataObject] = useState(0);
+    const [listofChampionsNamesAndIndex, setListofChampionsNamesAndIndex] = useState([])
+    
     useEffect(() => {
-        Papa.parse("/sheet.csv", {//parses the selected csv file into a 2d array
+        Papa.parse("/sheet.csv", {
             download: true,
-            header: true,
             complete: function (results) {
                 const champNames = []
                 for (let i = 0; i < results.data.length - 1; i++) {
                     champNames.push({ label: results.data[i + 1][0], value: i })
                 }
-                setChampionNamesList(champNames)
-                setChampionArr(results.data)
-                console.log("ignore")
+                setListofChampionsNamesAndIndex(champNames)
+                setChampionDataObject(results.data)
             }
-
         });
     }, [])
-    const datasets = champStats.map((champStat, index) => ({
-        label: 'Champion ' + index,
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(0,0,0,1)',
-        borderWidth: 2,
-        data: champStat
-    }));
+    const theme = useTheme()
 
+    let location = window.location.href.split("/").pop()
+    const [selected] = useState({ label: location, value: listofChampionsNamesAndIndex.findIndex(x => x.label === location) + 1 })
+    const datasets = [{
+        label: location,
+        backgroundColor: theme.palette.main,
+        borderColor: theme.palette.accent,
+        borderWidth: 2,
+        data: championDataObject[selected.value+1]?.slice(1,10)
+    }];
+    
     const state = {
         labels: ['H', 'H/Lv', 'M',
             'M/Lv', 'AD', 'AS', 'A', 'MR', 'R', 'MS'],
-        datasets: datasets
+        datasets: datasets //remember to delete the champion name from dataset
+    }
+    const mystyle = {
+        backgroundColor: theme.palette.primary.main,
+        elevation: '20'
     }
 
-
-    useEffect(() => {
-        try {
-            let champArray = []
-            for (let champ of selected) {
-                let champSelect = champ["value"] + 1
-                champArray.push(championArr[champSelect]);
-            }
-            setChampStats(selected)
-            //for(let i = 0; i < champArray.length; i++){
-            champArray[champArray.length - 1].shift()
-            //}
-
-        }
-        catch (err) {
-            let errMsg = "Input is " + err;
-        }
-    }, [selected])
-    console.log(championArr)
-    const mystyle = {
-        height: "80vh"
-    };
-
-
-
-    //const listOfChampionNames = championArr.map(x=>x.Champion)
     return (
-
         <>
-            <MultiSelect
-                options={championNamesList}        
-                value={selected}
-                onChange={setSelected}
-                labelledBy={"Select"}
-            />
-            <div style={mystyle}>
-                <Bar
+            
+            <Paper style={mystyle} >
+                <Bar 
                     data={state}
                     options={{
                         title: {
                             display: true,
                             text: 'Champion Stats',
-                            fontSize: 20
+                            fontSize: 30,
+                            fontColor: theme.palette.text.primary
                         },
                         legend: {
                             display: true,
-                            position: 'right'
+                            position: 'right',
+                            labels:{
+                            fontColor: theme.palette.text.primary,
+                            fontStyle: 'bold'
+                            }
                         }
                     }}
                 />
-            </div>
+            </Paper>
         </>
+
     )
 }
+
+
+
+
+
+
+
+
