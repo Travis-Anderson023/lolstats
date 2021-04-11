@@ -33,6 +33,7 @@ export const ChampionGraph = () => {
         borderWidth: 2,
         data: championDataObject[selected.value+1]?.slice(1,10)
     }];
+    console.log( listofChampionsNamesAndIndex)
     
     const state = {
         labels: ['H', 'H/Lv', 'M',

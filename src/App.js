@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import Button from '@material-ui/core/Button';
 import { AppBar, Container, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar, TextField } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import { useRoutes } from "hookrouter";
@@ -24,7 +23,7 @@ const useStyles = makeStyles(theme => ({
     color: theme.palette.icons
   },
   background: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.primary.light,
     height: '1000vh'
   },
   appBar: {

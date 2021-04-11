@@ -9,7 +9,7 @@ import { UserContainer } from './UserContext';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#3F51B5',
+      main: '#03A9F4',
     },
     icons: '#FFFFFF',
     accent: '#03A9F4',
