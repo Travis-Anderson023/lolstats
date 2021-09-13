@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     },
     paper: {
         padding: theme.spacing(0),
+        backgroundColor: theme.palette.primary.main,
         textAlign: 'center',
         overflow: 'hidden',
         boxSizing: 'border-box',

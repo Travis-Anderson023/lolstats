@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Papa from 'papaparse'
 import { Bar } from 'react-chartjs-2';
 import { useTheme } from '@material-ui/core/styles';
-import { Paper } from '@material-ui/core';
+import {Paper, Typography} from '@material-ui/core';
 
 
 export const ChampionGraph = () => {
@@ -42,12 +42,16 @@ export const ChampionGraph = () => {
     }
     const mystyle = {
         backgroundColor: theme.palette.primary.main,
-        elevation: '20'
+        elevation: '20',
+        margin: '15px'
     }
+
 
     return (
         <>
-            
+            <Paper style={mystyle}>
+                <Typography variant='h4'>{window.location.href.split("/").pop()}</Typography>
+            </Paper>
             <Paper style={mystyle} >
                 <Bar 
                     data={state}

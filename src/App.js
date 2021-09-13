@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AppBar, Container, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar, TextField } from "@material-ui/core";
+import { Typography, AppBar, Container, IconButton, List, ListItem, ListItemText, makeStyles, Toolbar, TextField } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
 import { useRoutes } from "hookrouter";
 import Url from "./components/Url";
@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
   navDisplayFlex: {
     display: `flex`,
     justifyContent: `space-between`,
-    color: theme.palette.icons
   },
   linkText: {
     textDecoration: `none`,
@@ -28,6 +27,13 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     elevation: '24'
+  },
+  title: {
+    background: theme.palette.primary.main,
+    color: theme.palette.text.primary
+  },
+  icons:{
+    color: theme.palette.icons
   }
 }));
 
@@ -44,7 +50,7 @@ export default function App() {
       <div style={{ "height": "20vh" }} />
       <AppBar elevation={15}>
         <Toolbar>
-          <IconButton edge="start" color="inherit" aria-label="home" onClick={() => { window.location.href = "/" }}>
+          <IconButton className={classes.icons} edge="start" color="inherit" aria-label="home" onClick={() => { window.location.href = "/" }}>
             <HomeIcon fontSize="large" />
           </IconButton>
           <Container maxWidth="sm" className={classes.navbarDisplayFlex}>
@@ -53,11 +59,10 @@ export default function App() {
               aria-labelledby="main navigation"
               className={classes.navDisplayFlex}
             >
-              <img style={{ width: '30%', height: 'auto' }} src={"https://freepngimg.com/thumb/league_of_legends/27974-5-league-of-legends-logo-transparent-background.png"} alt="Testingimage" />
+              <Container maxWidth='sm'>
+              <Typography variant='h6' ClassName={classes.primaryText}>League of Legends</Typography>
+            </Container>
 
-              <ListItem button>
-                <ListItemText />
-              </ListItem>
 
             </List>
 
