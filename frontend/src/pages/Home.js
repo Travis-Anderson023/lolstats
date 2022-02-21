@@ -120,12 +120,12 @@ export const Home = () => {
                     direction="row"
                     alignItems="center"
                     justify="center"
-                    style={{ minHeight: '100vh', padding: '60px' }}
+                    style={{ minHeight: '100vh', padding: '60px', width: '100%', margin: '0' }}
                 >
                     {
                         filteredRoutes.map((route, index) => (
                             <Grid item xs={12} sm={9} md={6} lg={3} xl={3} onClick={() => { window.location.href = route.path }} key={index}>
-                                <Paper elevation={10} className={classes.paper}>
+                                <Paper elevation={10} className={classes.paper} >
                                     <div className={classes.filter}>{route.img}</div>
                                     <Typography className={classes.caption}>{route.text}</Typography>
                                 </Paper>

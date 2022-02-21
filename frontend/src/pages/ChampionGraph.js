@@ -52,7 +52,7 @@ export const ChampionGraph = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [championDataObject])
     
-    const state = {
+    const graphData = {
         labels: ['H', 'H/Lv', 'M',
             'M/Lv', 'AD', 'AS', 'A', 'MR', 'R', 'MS'],
         datasets: datasets
@@ -95,7 +95,7 @@ export const ChampionGraph = () => {
             <Container style={containerStyle} maxWidth="xl">
                 <Paper style={mystyle} >
                     <Bar
-                        data={state}
+                        data={graphData}
                         options={{
                             title: {
                                 display: true,
@@ -120,8 +120,6 @@ export const ChampionGraph = () => {
                 image={pic}
                 alt="BG image"
             />
-
         </Box>
-
     )
 }
