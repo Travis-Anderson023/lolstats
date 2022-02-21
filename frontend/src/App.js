@@ -1,12 +1,10 @@
 // @ts-nocheck
-import React, { useContext } from "react";
-import { Typography, AppBar, Container, Button, List, CardMedia, ListItemText, makeStyles, Toolbar, TextField } from "@material-ui/core";
-import HomeIcon from "@material-ui/icons/Home";
+import { AppBar, Button, InputAdornment, makeStyles, TextField, Toolbar, Typography } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { useRoutes } from "hookrouter";
+import React, { useContext } from "react";
 import Url from "./components/Url";
 import { UserContext } from './UserContext';
-import {InputAdornment} from '@material-ui/core';
 
 
 
@@ -27,13 +25,13 @@ const useStyles = makeStyles(theme => ({
   background: {
     backgroundColor: theme.palette.primary.light,
     minHeight: '100vh',
-    width: '100vw',
+    width: '100%',
     display: 'flex',
   },
   flexContainter: {
     display: `flex`,
     flexDirection: `column`,
-    width:'100vw',
+    width:'100%',
   },
   appBar: {
     elevation: '24'
@@ -83,7 +81,7 @@ export default function App() {
         </AppBar>
         <div className={classes.background}>
           
-            <div className={classes.background} style={{width:'100vw'}}>
+            <div className={classes.background} style={{width:'100%'}}>
 
               {routeResult}
 

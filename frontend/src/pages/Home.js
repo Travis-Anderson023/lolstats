@@ -1,17 +1,15 @@
 //@ts-nocheck
-import React, { useContext, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import { Box, CardMedia, Typography } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import React, { useContext, useEffect } from 'react';
 import { UserContext } from '../UserContext';
-import { CardMedia, Typography, Container, Box } from '@material-ui/core';
-import { Parallax, Background } from 'react-parallax';
-import pic from '../Home.png';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
-        width: '100vw',
+        width: '100%',
     },
     paper: {
         padding: theme.spacing(0),
@@ -51,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     foregroundStyle: {
         position: 'relative',
         zIndex: 100,
-        width: '100vw'
+        width: '100%'
     }
 }));
 
@@ -75,7 +73,7 @@ export const Home = () => {
 
     const backdropImgStyle = {
         height: '200vh',
-        width: '100vw',
+        width: '100%',
         position: 'fixed',
         top: paralaxPosition,
         left: 0,

@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useContext, useRef} from 'react';
-import Papa from 'papaparse'
-import { Bar } from 'react-chartjs-2';
+import { Box, CardMedia, Container, Paper } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
-import {Box, Paper, Typography, CardMedia, Container} from '@material-ui/core';
-import { UserContext } from '../UserContext';
-import { ContactSupportOutlined } from '@material-ui/icons';
+import Papa from 'papaparse';
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
 
 export const ChampionGraph = () => {
-    const ref = useRef(null);
     const [championDataObject, setChampionDataObject] = useState(0);
     const [listofChampionsNamesAndIndex, setListofChampionsNamesAndIndex] = useState([])
     
@@ -26,7 +23,6 @@ export const ChampionGraph = () => {
         });
     }, [])
     const theme = useTheme()
-    const { routes } = useContext(UserContext);
 
     let location = window.location.href.split("/").pop()
     const findChampionIndex = (x) => {
