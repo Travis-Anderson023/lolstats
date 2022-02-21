@@ -13,7 +13,7 @@ Make sure to click [here](http://lolstatsportfolio.herokuapp.com/) to view a liv
 ## Screenshot
 ![screenshot](LolSite1.gif)
 
-##Questions
+## Questions
 
 You can reach the creator of this project at:
 [Github](http://github.com/Travis-Anderson023)
