@@ -59,7 +59,7 @@ export const ChampionGraph = () => {
         datasets: datasets
     }
     
-    const mystyle = {
+    const graphStyle = {
 
         backgroundColor: theme.palette.primary.main,
         elevation: '20',
@@ -94,7 +94,7 @@ export const ChampionGraph = () => {
     return (
         <Box style={foregroundStyle}>
             <Container style={containerStyle} maxWidth="xl">
-                <Paper style={mystyle} >
+                <Paper style={graphStyle} >
                     <Bar
                         data={graphData}
                         options={{
