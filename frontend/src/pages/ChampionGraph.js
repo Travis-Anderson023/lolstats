@@ -1,7 +1,7 @@
 import { Box, CardMedia, Container, Paper } from '@material-ui/core';
 import { useTheme } from '@material-ui/core/styles';
 import Papa from 'papaparse';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 
@@ -25,9 +25,10 @@ export const ChampionGraph = () => {
     const theme = useTheme()
 
     let location = window.location.href.split("/").pop()
-    const findChampionIndex = (x) => {
+
+    const findChampionIndex = useCallback((x) => {
         return x.label === location
-    }
+    }, [location])
 
 
     const [datasets, setDatasets] = useState([{
