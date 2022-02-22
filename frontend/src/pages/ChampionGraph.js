@@ -63,7 +63,7 @@ export const ChampionGraph = () => {
 
         backgroundColor: theme.palette.primary.main,
         elevation: '20',
-        width: '70%',
+        width: ['90%'],
         opacity: '0.80',
     }
 
