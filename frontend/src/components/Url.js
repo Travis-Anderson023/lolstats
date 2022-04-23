@@ -4,7 +4,7 @@ import { Home } from "../pages/Home";
 import { Test } from "../pages/Test";
 
 const Url = {
-  [`${process.env.PUBLIC_URL}/`]: () => <Home />,
+  [`${process.env.PUBLIC_URL}`]: () => <Home />,
   [`${process.env.PUBLIC_URL}/test`]: () => <Test />,
   [`${process.env.PUBLIC_URL}/Aatrox`]: () => <ChampionGraph />,
   [`${process.env.PUBLIC_URL}/Ahri`]: () => <ChampionGraph />,
